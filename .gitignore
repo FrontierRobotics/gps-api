@@ -1,0 +1,6 @@
+.settings*
+*.log*
+.cache
+target
+*.iml
+*.idea
