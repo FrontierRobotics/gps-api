@@ -10,6 +10,7 @@
 
     <properties>
         <kotlin.version>1.0.0-rc-1036</kotlin.version>
+        <main.class>net.coro.gis.api.MainKt</main.class>
     </properties>
     
     <dependencies>
@@ -57,9 +58,22 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>net.coro.gis.api.MainKt</mainClass>
+                    <mainClass>${main.class}</mainClass>
                 </configuration>
             </plugin>
+<plugin>
+      <artifactId>maven-assembly-plugin</artifactId>
+      <configuration>
+        <archive>
+          <manifest>
+            <mainClass>${main.class}</mainClass>
+          </manifest>
+        </archive>
+        <descriptorRefs>
+          <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+      </configuration>
+    </plugin>
 </plugins>
 </build>
 </project>
