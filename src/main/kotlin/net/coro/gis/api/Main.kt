@@ -9,7 +9,7 @@ fun main(args: Array<String>) {
     val comPort = SerialPort.getCommPort("/dev/ttyAMA0")
     comPort.openPort()
 
-    println("Baud Rate: " + comPort.getBaudRate())
+    println("Baud Rate: " + comPort.baudRate)
 
     try {
         while (true) {
@@ -21,7 +21,7 @@ fun main(args: Array<String>) {
 
             println("Bytes Available: " + bytesAvailable)
 
-            val readBuffer: ByteArray = ByteArray(bytesAvailable)
+            val readBuffer = ByteArray(bytesAvailable)
             val numRead = comPort.readBytes(readBuffer, bytesAvailable.toLong())
             println("Read " + numRead + " bytes: " + String(readBuffer))
         }
