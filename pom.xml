@@ -19,6 +19,11 @@
             <artifactId>kotlin-stdlib</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
+<dependency>
+   <groupId>com.fazecast</groupId>
+   <artifactId>jSerialComm</artifactId>
+   <version>1.3.10</version>
+</dependency>
     </dependencies>
 
 
