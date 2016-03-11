@@ -15,7 +15,7 @@ class SerialReader(portDescripter: String) : Closeable {
         serialPort.closePort()
     }
 
-    fun readSentence(): String {
+    fun readSentence(): GPRMC {
         while (serialPort.bytesAvailable() == 0) {
             Thread.sleep(20);
         }
@@ -27,8 +27,9 @@ class SerialReader(portDescripter: String) : Closeable {
         val readBuffer = ByteArray(bytesAvailable)
         val numRead = serialPort.readBytes(readBuffer, bytesAvailable.toLong())
 
+        val sentence = String(readBuffer)
 
-        return String(readBuffer)
+        return GPRMC(sentence)
     }
 
     override fun toString(): String {
