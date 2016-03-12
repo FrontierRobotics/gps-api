@@ -27,6 +27,8 @@ class SerialReader(portDescripter: String) : Closeable {
         val readBuffer = ByteArray(bytesAvailable)
         val numRead = serialPort.readBytes(readBuffer, bytesAvailable.toLong())
 
+        println("Bytes Read: " + numRead)
+
         val sentence = String(readBuffer)
 
         return GPRMC(sentence)
