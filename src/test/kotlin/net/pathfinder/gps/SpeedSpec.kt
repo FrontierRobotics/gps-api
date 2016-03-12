@@ -1,11 +1,10 @@
 package net.pathfinder.gps
 
-import org.jetbrains.spek.api.It
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.shouldEqual
 import kotlin.test.assertTrue
 
-public fun <T : Number> It.shouldBeBetween(expectedFloor: T, expectedCeiling: T, actual: T): Unit {
+fun <T : Number> shouldBeBetween(expectedFloor: T, expectedCeiling: T, actual: T): Unit {
     val floor = expectedFloor.toDouble()
     val ceiling = expectedCeiling.toDouble()
     val test = actual.toDouble()
