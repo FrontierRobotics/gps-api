@@ -13,9 +13,6 @@ class Speed private constructor (val metersPerSecond: Double) {
         fun fromKnots(knots: Double): Speed = fromKilometerPerHour(knots * 1.852)
     }
 
-    /**
-    exact
-     */
     fun toMetersPerSecond(): Double = metersPerSecond
 
     fun toKilometersPerHour(): Double = toMetersPerSecond() * 3.6
