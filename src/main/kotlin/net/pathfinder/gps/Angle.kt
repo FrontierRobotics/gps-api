@@ -1,6 +1,5 @@
 package net.pathfinder.gps
 
-
 class Angle(val direction: Direction, val degrees: Int, val minutes: Int, val seconds: Float) {
 
     companion object {
