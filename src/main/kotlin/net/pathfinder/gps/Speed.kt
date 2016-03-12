@@ -4,20 +4,23 @@ package net.pathfinder.gps
 class Speed private constructor (val metersPerSecond: Double) {
 
     companion object {
-        fun fromKnots(knots: Double): Speed {
-            return fromKilometerPerHour(knots * 1.852) //exact
-        }
+        fun fromMetersPerSecond(mps: Double): Speed = Speed(mps)
 
-        fun fromMilesPerHour(mph: Double): Speed {
-            return fromKilometerPerHour(mph * 1.609344) //exact
-        }
+        fun fromKilometerPerHour(kph: Double): Speed = Speed(kph * 0.277778)
 
-        fun fromMetersPerSecond(mps: Double): Speed {
-            return Speed(mps) //exact
-        }
+        fun fromMilesPerHour(mph: Double): Speed = fromMetersPerSecond(mph * 0.44704)
 
-        fun fromKilometerPerHour(kph: Double): Speed {
-            return Speed(kph * 0.277778)
-        }
+        fun fromKnots(knots: Double): Speed = fromKilometerPerHour(knots * 1.852)
     }
+
+    /**
+    exact
+     */
+    fun toMetersPerSecond(): Double = metersPerSecond
+
+    fun toKilometersPerHour(): Double = toMetersPerSecond() * 3.6
+
+    fun toMilesPerHour(): Double = toMetersPerSecond() * 2.236936
+
+    fun toKnots(): Double = toMetersPerSecond() * 1.943844
 }
