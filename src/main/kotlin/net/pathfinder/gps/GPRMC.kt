@@ -5,7 +5,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
 
-class GPRMC(val fixAcquired: Boolean, val dateTime: LocalDateTime, val velocity: Velocity, val location: Location?) {
+class GPRMC(val fixAcquired: Boolean, val dateTime: LocalDateTime, val speed: Speed, val location: Location?) {
 
     companion object {
         fun from(sentence: String): GPRMC {
@@ -42,8 +42,8 @@ class GPRMC(val fixAcquired: Boolean, val dateTime: LocalDateTime, val velocity:
             return LocalTime.of(hour, minute, seconds, milliseconds * 1000000)
         }
 
-        fun velocityFromSentence(knots: String): Velocity {
-            return Velocity.fromKnots(knots.toDouble())
+        fun velocityFromSentence(knots: String): Speed {
+            return Speed.fromKnots(knots.toDouble())
         }
 
         private fun locationFromSentence(latitude: String,
@@ -77,7 +77,7 @@ class GPRMC(val fixAcquired: Boolean, val dateTime: LocalDateTime, val velocity:
         }
     }
 
-    constructor(other: GPRMC) : this(other.fixAcquired, other.dateTime, other.velocity, other.location)
+    constructor(other: GPRMC) : this(other.fixAcquired, other.dateTime, other.speed, other.location)
 
     constructor(sentence: String) : this(from(sentence))
 }
