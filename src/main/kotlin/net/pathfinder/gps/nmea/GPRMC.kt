@@ -1,11 +1,14 @@
-package net.pathfinder.gps
+package net.pathfinder.gps.nmea
 
+import net.pathfinder.gps.Angle
 import net.pathfinder.gps.Direction.*
+import net.pathfinder.gps.Position
+import net.pathfinder.gps.Speed
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
 
-class GPRMC(val fixAcquired: Boolean, val dateTime: LocalDateTime, val speed: Speed, val location: Location?) {
+class GPRMC(val fixAcquired: Boolean, val dateTime: LocalDateTime, val speed: Speed, val position: Position?) {
 
     companion object {
         fun from(sentence: String): GPRMC {
@@ -49,7 +52,7 @@ class GPRMC(val fixAcquired: Boolean, val dateTime: LocalDateTime, val speed: Sp
         private fun locationFromSentence(latitude: String,
                                          latitudeDirection: String,
                                          longitude: String,
-                                         longitudeDirection: String): Location? {
+                                         longitudeDirection: String): Position? {
             if (latitude.isEmpty() || latitudeDirection.isEmpty() || longitude.isEmpty() || longitudeDirection.isEmpty()) {
                 return null
             }
@@ -57,7 +60,7 @@ class GPRMC(val fixAcquired: Boolean, val dateTime: LocalDateTime, val speed: Sp
             val latitudeAngle = angleFromSentence(latitude, latitudeDirection, degreeSize = 2)
             val longitudeAngle = angleFromSentence(longitude, longitudeDirection, degreeSize = 3)
 
-            return Location(latitudeAngle, longitudeAngle)
+            return Position(latitudeAngle, longitudeAngle)
         }
 
         private fun angleFromSentence(degreesAndMinutes: String, direction: String, degreeSize: Int): Angle {
@@ -77,7 +80,7 @@ class GPRMC(val fixAcquired: Boolean, val dateTime: LocalDateTime, val speed: Sp
         }
     }
 
-    constructor(other: GPRMC) : this(other.fixAcquired, other.dateTime, other.speed, other.location)
+    constructor(other: GPRMC) : this(other.fixAcquired, other.dateTime, other.speed, other.position)
 
     constructor(sentence: String) : this(from(sentence))
 }
