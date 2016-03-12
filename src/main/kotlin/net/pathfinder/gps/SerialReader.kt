@@ -4,9 +4,9 @@ import com.fazecast.jSerialComm.SerialPort
 import net.pathfinder.gps.nmea.GPRMC
 import java.io.Closeable
 
-class SerialReader(portDescripter: String) : Closeable {
+class SerialReader(portDescriptor: String) : Closeable {
 
-    val serialPort = SerialPort.getCommPort(portDescripter)
+    val serialPort = SerialPort.getCommPort(portDescriptor)
 
     init {
         serialPort.openPort()
