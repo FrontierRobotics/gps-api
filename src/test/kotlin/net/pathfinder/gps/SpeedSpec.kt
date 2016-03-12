@@ -10,7 +10,6 @@ fun <T : Number> shouldBeBetween(expectedFloor: T, expectedCeiling: T, actual: T
     val test = actual.toDouble()
 
     return assertTrue(((floor <= test) && (test <= ceiling)), "$actual is not between $expectedFloor and $expectedCeiling.")
-
 }
 
 class SpeedSpec : Spek() {
