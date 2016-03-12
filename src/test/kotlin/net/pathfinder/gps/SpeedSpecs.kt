@@ -2,18 +2,9 @@ package net.pathfinder.gps
 
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.shouldEqual
-import kotlin.test.assertTrue
+import spec.NumberSpecs
 
-fun <T : Number> shouldBeBetween(expectedFloor: T, expectedCeiling: T, actual: T): Unit {
-    val floor = expectedFloor.toDouble()
-    val ceiling = expectedCeiling.toDouble()
-    val test = actual.toDouble()
-
-    return assertTrue(((floor <= test) && (test <= ceiling)), "$actual is not between $expectedFloor and $expectedCeiling.")
-
-}
-
-class SpeedSpec : Spek() {
+class SpeedSpecs : Spek(), NumberSpecs {
     init {
         given("a speed in meters per second")
         {
