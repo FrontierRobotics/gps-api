@@ -8,7 +8,7 @@ class SpeedSpecs : Spek(), NumberSpecs {
     init {
         given("a speed in meters per second")
         {
-            val speed = Speed.fromMetersPerSecond(98.5)
+            val speed = Speed.ofMetersPerSecond(98.5)
 
             on("calling toKilometersPerHour")
             {
@@ -40,7 +40,7 @@ class SpeedSpecs : Spek(), NumberSpecs {
 
         given("a speed in miles per hour")
         {
-            val speed = Speed.fromMilesPerHour(65.0)
+            val speed = Speed.ofMilesPerHour(65.0)
 
             on("calling toMetersPerSecond")
             {
@@ -63,7 +63,7 @@ class SpeedSpecs : Spek(), NumberSpecs {
 
         given("a speed in knots")
         {
-            val speed = Speed.fromKnots(17.0)
+            val speed = Speed.ofKnots(17.0)
 
             on("calling toMetersPerSecond")
             {

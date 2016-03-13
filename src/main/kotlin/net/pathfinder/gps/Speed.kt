@@ -1,19 +1,21 @@
 package net.pathfinder.gps
 
+import java.time.Duration
 
-class Speed private constructor (val metersPerSecond: Double) {
+
+class Speed (val distance: Distance, val duration: Duration) {
 
     companion object {
-        fun fromMetersPerSecond(mps: Double): Speed = Speed(mps)
+        fun ofMetersPerSecond(mps: Double): Speed = Speed(Distance.ofMeters(mps), Duration.ofSeconds(1))
 
-        fun fromKilometerPerHour(kph: Double): Speed = Speed(kph * 0.277778)
+        fun ofKilometersPerHour(kph: Double): Speed = ofMetersPerSecond(kph * 0.277778)
 
-        fun fromMilesPerHour(mph: Double): Speed = fromMetersPerSecond(mph * 0.44704)
+        fun ofMilesPerHour(mph: Double): Speed = ofMetersPerSecond(mph * 0.44704)
 
-        fun fromKnots(knots: Double): Speed = fromKilometerPerHour(knots * 1.852)
+        fun ofKnots(knots: Double): Speed = ofKilometersPerHour(knots * 1.852)
     }
 
-    fun toMetersPerSecond(): Double = metersPerSecond
+    fun toMetersPerSecond(): Double = distance.toMeters() / duration.seconds
 
     fun toKilometersPerHour(): Double = toMetersPerSecond() * 3.6
 

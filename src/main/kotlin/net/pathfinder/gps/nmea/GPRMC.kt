@@ -46,7 +46,7 @@ class GPRMC(val fixAcquired: Boolean, val dateTime: LocalDateTime, val speed: Sp
         }
 
         fun velocityFromSentence(knots: String): Speed {
-            return Speed.fromKnots(knots.toDouble())
+            return Speed.ofKnots(knots.toDouble())
         }
 
         private fun locationFromSentence(latitude: String,
