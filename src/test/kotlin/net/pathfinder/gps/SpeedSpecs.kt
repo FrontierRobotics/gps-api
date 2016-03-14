@@ -12,19 +12,17 @@ class SpeedSpecs : Spek(), NumberSpecs {
 
             on("calling toKilometersPerHour")
             {
-                val kilometersPerHour = speed.toKilometersPerHour()
                 it("should return the correct result")
                 {
-                    shouldEqual(354.6, kilometersPerHour)
+                    shouldEqual(354.6, speed.toKilometersPerHour())
                 }
             }
 
             on("calling toMilesPerHour")
             {
-                val kilometersPerHour = speed.toMilesPerHour()
                 it("should return the correct result")
                 {
-                    shouldBeBetween(220.3381, 220.3382, kilometersPerHour)
+                    shouldBeBetween(220.3381, 220.3382, speed.toMilesPerHour())
                 }
             }
 

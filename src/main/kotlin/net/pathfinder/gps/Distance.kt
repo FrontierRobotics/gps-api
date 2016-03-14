@@ -7,4 +7,6 @@ class Distance private constructor(val meters: Double) {
     }
 
     fun toMeters() = meters
+
+    fun toKilometers() = toMeters() / 1000
 }
