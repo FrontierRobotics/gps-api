@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.andycondon</groupId>
-    <artifactId>gps-service</artifactId>
+    <artifactId>pathfinder-gps</artifactId>
     <version>0.1.0</version>
     <name>GPS Service</name>
 
