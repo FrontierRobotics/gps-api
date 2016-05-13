@@ -9,7 +9,7 @@
     <name>GPS Service</name>
 
     <properties>
-        <kotlin.version>1.0.0-rc-1036</kotlin.version>
+        <kotlin.version>1.0.1-2</kotlin.version>
         <main.class>net.pathfinder.gps.api.Main.kt</main.class>
     </properties>
 
