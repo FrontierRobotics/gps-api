@@ -1,7 +1,7 @@
-package net.pathfinder.gps
+package io.frontierrobotics.gps
 
-import net.pathfinder.gps.Direction.NORTH
-import net.pathfinder.gps.Direction.WEST
+import io.frontierrobotics.gps.Direction.NORTH
+import io.frontierrobotics.gps.Direction.WEST
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.shouldEqual
 

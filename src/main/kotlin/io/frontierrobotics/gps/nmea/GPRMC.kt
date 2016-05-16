@@ -1,9 +1,9 @@
-package net.pathfinder.gps.nmea
+package io.frontierrobotics.gps.nmea
 
-import net.pathfinder.gps.Angle
-import net.pathfinder.gps.Direction.*
-import net.pathfinder.gps.Position
-import net.pathfinder.gps.Speed
+import io.frontierrobotics.gps.Angle
+import io.frontierrobotics.gps.Direction.*
+import io.frontierrobotics.gps.Position
+import io.frontierrobotics.gps.Speed
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime

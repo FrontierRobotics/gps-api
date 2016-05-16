@@ -1,4 +1,4 @@
-package net.pathfinder.gps
+package io.frontierrobotics.gps
 
 import java.time.Duration
 
@@ -6,7 +6,7 @@ import java.time.Duration
 class Speed (val distance: Distance, val duration: Duration) {
 
     companion object {
-        fun ofMetersPerSecond(mps: Double) = Speed(Distance.ofMeters(mps), Duration.ofSeconds(1))
+        fun ofMetersPerSecond(mps: Double) = Speed(Distance.Companion.ofMeters(mps), Duration.ofSeconds(1))
 
         fun ofKilometersPerHour(kph: Double) = ofMetersPerSecond(kph * 0.277778)
 

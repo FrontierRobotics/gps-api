@@ -3,14 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.andycondon</groupId>
-    <artifactId>pathfinder-gps</artifactId>
+    <groupId>io.frontierrobotics</groupId>
+    <artifactId>gps-api</artifactId>
     <version>0.1.0</version>
-    <name>GPS Service</name>
+    <name>GPS API</name>
 
     <properties>
         <kotlin.version>1.0.1-2</kotlin.version>
-        <main.class>net.pathfinder.gps.api.Main.kt</main.class>
+        <main.class>io.frontierrobotics.gps.api.Main.kt</main.class>
     </properties>
 
     <dependencies>

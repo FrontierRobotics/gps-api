@@ -1,4 +1,4 @@
-package net.pathfinder.gps
+package io.frontierrobotics.gps
 
 class Distance private constructor(val meters: Double) {
 

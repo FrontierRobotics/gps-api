@@ -1,4 +1,4 @@
-package net.pathfinder.gps
+package io.frontierrobotics.gps
 
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.shouldEqual

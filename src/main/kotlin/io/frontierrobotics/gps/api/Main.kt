@@ -1,6 +1,6 @@
-package net.pathfinder.gps.api
+package io.frontierrobotics.gps.api
 
-import net.pathfinder.gps.SerialReader
+import io.frontierrobotics.gps.SerialReader
 
 fun main(args: Array<String>) {
 

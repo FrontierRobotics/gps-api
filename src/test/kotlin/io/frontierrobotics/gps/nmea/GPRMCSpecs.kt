@@ -1,4 +1,4 @@
-package net.pathfinder.gps.nmea
+package io.frontierrobotics.gps.nmea
 
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.shouldBeFalse

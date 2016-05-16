@@ -1,7 +1,7 @@
-package net.pathfinder.gps
+package io.frontierrobotics.gps
 
 import com.fazecast.jSerialComm.SerialPort
-import net.pathfinder.gps.nmea.GPRMC
+import io.frontierrobotics.gps.nmea.GPRMC
 import java.io.Closeable
 
 class SerialReader(portDescriptor: String) : Closeable {

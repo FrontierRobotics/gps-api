@@ -1,4 +1,4 @@
-package net.pathfinder.gps
+package io.frontierrobotics.gps
 
 class Angle(val direction: Direction, val degrees: Int, val minutes: Int, val seconds: Float) {
 
@@ -6,7 +6,7 @@ class Angle(val direction: Direction, val degrees: Int, val minutes: Int, val se
         fun from(direction: Direction, degrees: Double): Angle {
             val wholeDegrees = degrees.toInt()
             val minutes = (degrees - wholeDegrees) * 60
-            return Angle.from(direction, wholeDegrees, minutes)
+            return from(direction, wholeDegrees, minutes)
         }
 
         fun from(direction: Direction, degrees: Int, minutes: Double): Angle {
