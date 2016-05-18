@@ -9,7 +9,7 @@
     <name>GPS API</name>
 
     <properties>
-        <kotlin.version>1.0.1-2</kotlin.version>
+        <kotlin.version>1.0.2</kotlin.version>
         <main.class>io.frontierrobotics.gps.api.Main.kt</main.class>
     </properties>
 
