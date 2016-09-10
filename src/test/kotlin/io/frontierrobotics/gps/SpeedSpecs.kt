@@ -1,76 +1,77 @@
 package io.frontierrobotics.gps
 
 import org.jetbrains.spek.api.Spek
-import org.jetbrains.spek.api.shouldEqual
-import spec.NumberSpecs
+import org.jetbrains.spek.api.dsl.describe
+import org.jetbrains.spek.api.dsl.it
+import org.jetbrains.spek.api.dsl.on
+import test.assertBetween
+import kotlin.test.assertEquals
 
-class SpeedSpecs : Spek(), NumberSpecs {
-    init {
-        given("a speed in meters per second")
+class SpeedSpecs : Spek({
+    describe("a speed in meters per second")
+    {
+        val speed = Speed.ofMetersPerSecond(98.5)
+
+        on("calling toKilometersPerHour")
         {
-            val speed = Speed.ofMetersPerSecond(98.5)
-
-            on("calling toKilometersPerHour")
+            it("should return the correct result")
             {
-                it("should return the correct result")
-                {
-                    shouldEqual(354.6, speed.toKilometersPerHour())
-                }
-            }
-
-            on("calling toMilesPerHour")
-            {
-                it("should return the correct result")
-                {
-                    shouldBeBetween(220.3381, 220.3382, speed.toMilesPerHour())
-                }
-            }
-
-            on("calling toKnots")
-            {
-                val knots = speed.toKnots()
-                it("should return the correct result")
-                {
-                    shouldBeBetween(191.46863, 191.4687, knots)
-                }
+                assertEquals(354.6, speed.toKilometersPerHour())
             }
         }
 
-        given("a speed in miles per hour")
+        on("calling toMilesPerHour")
         {
-            val speed = Speed.ofMilesPerHour(65.0)
-
-            on("calling toMetersPerSecond")
+            it("should return the correct result")
             {
-                val metersPerSecond = speed.toMetersPerSecond()
-                it("should return the correct result")
-                {
-                    shouldEqual(29.0576, metersPerSecond)
-                }
-            }
-
-            on("calling toKilometersPerHour")
-            {
-                val kilometersPerHour = speed.toKilometersPerHour()
-                it("should return the correct result")
-                {
-                    shouldBeBetween(104.607, 104.6074, kilometersPerHour)
-                }
+                assertBetween(220.3381, 220.3382, speed.toMilesPerHour())
             }
         }
 
-        given("a speed in knots")
+        on("calling toKnots")
         {
-            val speed = Speed.ofKnots(17.0)
-
-            on("calling toMetersPerSecond")
+            val knots = speed.toKnots()
+            it("should return the correct result")
             {
-                val metersPerSecond = speed.toMetersPerSecond()
-                it("should return the correct result")
-                {
-                    shouldBeBetween(8.74556, 8.745563, metersPerSecond)
-                }
+                assertBetween(191.46863, 191.4687, knots)
             }
         }
     }
-}
+
+    describe("a speed in miles per hour")
+    {
+        val speed = Speed.ofMilesPerHour(65.0)
+
+        on("calling toMetersPerSecond")
+        {
+            val metersPerSecond = speed.toMetersPerSecond()
+            it("should return the correct result")
+            {
+                assertEquals(29.0576, metersPerSecond)
+            }
+        }
+
+        on("calling toKilometersPerHour")
+        {
+            val kilometersPerHour = speed.toKilometersPerHour()
+            it("should return the correct result")
+            {
+                assertBetween(104.607, 104.6074, kilometersPerHour)
+            }
+        }
+    }
+
+    describe("a speed in knots")
+    {
+        val speed = Speed.ofKnots(17.0)
+
+        on("calling toMetersPerSecond")
+        {
+            val metersPerSecond = speed.toMetersPerSecond()
+            it("should return the correct result")
+            {
+                assertBetween(8.74556, 8.745563, metersPerSecond)
+            }
+        }
+    }
+})
